@@ -107,7 +107,7 @@ class Character extends FlxSprite
 		var rawJson = Paths.getContent(path);
                 var jsonString = StringTools.trim(rawJson); // 移除首尾空白
 
-		return cast Json.parser(jsonString);
+		return cast Json.parse(jsonString);
 	}
 
 	public function new(x:Float, y:Float, ?character:String = 'bf', ?isPlayer:Bool = false)
