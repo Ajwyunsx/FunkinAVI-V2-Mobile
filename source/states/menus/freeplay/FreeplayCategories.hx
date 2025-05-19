@@ -166,6 +166,9 @@ class FreeplayCategories extends MusicBeatState {
 
 		flashThing = 0.6;
 		FlxTween.tween(this, {flashThing: 0}, 1, {type: PINGPONG});
+		#if android
+		addVirtualPad(FULL, A_B);
+		#end
     }
 
 	var counterControl:Float = 0;
