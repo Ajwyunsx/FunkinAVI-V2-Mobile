@@ -158,6 +158,10 @@ class RemakedFreeplayMenu extends MusicBeatState
 
 		persistentUpdate = true;
 		PlayState.isStoryMode = false;
+
+		#if android
+		addVirtualPad(NONE, A_B);
+		#end
 	}
 
 	override public function update(elapsed:Float)
@@ -175,7 +179,7 @@ class RemakedFreeplayMenu extends MusicBeatState
 			FlxG.mouse.visible = true;
 		}
 
-		if(FlxG.keys.justPressed.SPACE)
+		if(FlxG.keys.justPressed.SPACE #if android || _virtualpad.buttonA.justPressed #end)
 		{
 			if(instPlaying != curSelected && !disableSpace)
 			{
