@@ -7,6 +7,7 @@ import flixel.tweens.FlxTween;
 import flixel.tweens.FlxEase;
 import flixel.ui.FlxButton;
 import flixel.FlxSprite;
+import flixel.util.FlxColor;
 
 class FlxHitbox extends FlxSpriteGroup {
 	public var hitbox:FlxSpriteGroup;
@@ -18,7 +19,6 @@ class FlxHitbox extends FlxSpriteGroup {
 
 	public var orgAlpha:Float = 0.75;
 	public var orgAntialiasing:Bool = true;
-	var gray:FlxRuntimeShader = new FlxRuntimeShader(Shaders.gray, null, 100);
 	
 	public function new(?alphaAlt:Float = 0.75, ?antialiasingAlt:Bool = true) {
 		super();
@@ -38,21 +38,28 @@ class FlxHitbox extends FlxSpriteGroup {
 		hitbox.add(add(buttonRight = createhitbox(960, 0, "right")));
 
 		var hitbox_hint:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('androidcontrols/hitbox_hint'));
+		hitbox_hint.color = FlxColor.GRAY; // Make the hint gray
 		hitbox_hint.antialiasing = orgAntialiasing;
 		hitbox_hint.alpha = orgAlpha;
-		hitbox_hint.shader = gray;
 		add(hitbox_hint);
 	}
 
 	public function createhitbox(x:Float = 0, y:Float = 0, frames:String) {
 		var button = new FlxButton(x, y);
-		button.loadGraphic(FlxGraphic.fromFrame(getFrames().getByName(frames)));
+		var graphic = FlxGraphic.fromFrame(getFrames().getByName(frames));
+		graphic.color = FlxColor.GRAY; // Make the button graphic gray
+		button.loadGraphic(graphic);
 		button.antialiasing = orgAntialiasing;
-		button.shader = gray;
-		button.alpha = 0;// sorry but I can't hard lock the hitbox alpha
-		button.onDown.callback = function (){FlxTween.num(0, 0.75, 0.075, {ease:FlxEase.circInOut}, function(alpha:Float){ button.alpha = alpha;});};
-		button.onUp.callback = function (){FlxTween.num(0.75, 0, 0.1, {ease:FlxEase.circInOut}, function(alpha:Float){ button.alpha = alpha;});}
-		button.onOut.callback = function (){FlxTween.num(button.alpha, 0, 0.2, {ease:FlxEase.circInOut}, function(alpha:Float){ button.alpha = alpha;});}
+		button.alpha = 0; // sorry but I can't hard lock the hitbox alpha
+		button.onDown.callback = function (){
+			FlxTween.num(0, 0.75, 0.075, {ease:FlxEase.circInOut}, function(alpha:Float){ button.alpha = alpha;});
+		};
+		button.onUp.callback = function (){
+			FlxTween.num(0.75, 0, 0.1, {ease:FlxEase.circInOut}, function(alpha:Float){ button.alpha = alpha;});
+		}
+		button.onOut.callback = function (){
+			FlxTween.num(button.alpha, 0, 0.2, {ease:FlxEase.circInOut}, function(alpha:Float){ button.alpha = alpha;});
+		}
 		return button;
 	}
 
