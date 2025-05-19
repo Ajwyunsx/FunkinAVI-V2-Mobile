@@ -66,6 +66,7 @@ class Gradient extends FlxSpriteGroup
 	{
 		final guh2:Float = 0.00001;
 		final guh:Float = ClientPrefs.hitboxalpha >= 0.9 ? ClientPrefs.hitboxalpha - 0.2 : ClientPrefs.hitboxalpha;
+		var gray:FlxRuntimeShader = new FlxRuntimeShader(Shaders.gray, null, 100);
 		var hint:FlxButton = new FlxButton(X, Y);
 		hint.loadGraphic(createHintGraphic(Width, Height, Color));
 		hint.solid = false;
@@ -74,6 +75,7 @@ class Gradient extends FlxSpriteGroup
 		hint.moves = false;
 		hint.antialiasing = ClientPrefs.globalAntialiasing;
 		hint.scrollFactor.set();
+		hint.shader = gray;
 		hint.alpha = guh2;
 			hint.onDown.callback = function()
 			{
