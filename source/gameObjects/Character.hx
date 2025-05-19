@@ -83,19 +83,10 @@ class Character extends FlxSprite
 	public static function getCharacterFile(character:String):CharacterFile{
 		var characterPath:String = 'characters/' + character + '.json';
 
-		#if MODS_ALLOWED
-		var path:String = Paths.modFolders(characterPath);
-		if (!Paths.exists(path)) {
-			path = SUtil.getPath() + Paths.getPreloadPath(characterPath);
-		}
-
-		if (!Paths.exists(path))
-		#else
 		var path:String = Paths.getPreloadPath(characterPath);
 		if (!Paths.exists(path))
-		#end
 		{
-			path = SUtil.getPath() + Paths.getPreloadPath('characters/' + DEFAULT_CHARACTER + '.json'); //If a character couldn't be found, change him to BF just to prevent a crash
+			path = android.backend.SUtil.getPath() + Paths.getPreloadPath('characters/' + DEFAULT_CHARACTER + '.json'); //If a character couldn't be found, change him to BF just to prevent a crash
 		}
 
 		// #if MODS_ALLOWED
@@ -105,7 +96,6 @@ class Character extends FlxSprite
 		// #end
 
 		var rawJson = Paths.getContent(path);
-                var jsonString = StringTools.trim(rawJson); // 移除首尾空白
 
 		return cast Json.parse(jsonString);
 	}
