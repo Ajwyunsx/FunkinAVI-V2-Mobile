@@ -64,13 +64,13 @@ class FlxNewHitbox extends FlxSpriteGroup
 	{
 		var shape:Shape = new Shape();
 
-			shape.graphics.beginFill(Color);
-			shape.graphics.lineStyle(3, Color, 1);
+			shape.graphics.beginFill(FlxColor.GRAY);
+			shape.graphics.lineStyle(3, FlxColor.GRAY, 1);
 			shape.graphics.drawRect(0, 0, Width, Height);
 			shape.graphics.lineStyle(0, 0, 0);
 			shape.graphics.drawRect(3, 3, Width - 6, Height - 6);
 			shape.graphics.endFill();
-			shape.graphics.beginGradientFill(RADIAL, [Color, FlxColor.TRANSPARENT], [0.6, 0], [0, 255], null, null, null, 0.5);
+			shape.graphics.beginGradientFill(RADIAL, [FlxColor.GRAY, FlxColor.TRANSPARENT], [0.6, 0], [0, 255], null, null, null, 0.5);
 			shape.graphics.drawRect(3, 3, Width - 6, Height - 6);
 			shape.graphics.endFill();
 
@@ -80,7 +80,6 @@ class FlxNewHitbox extends FlxSpriteGroup
 	}
 
     public function createhitbox(X:Float, color:Int, Y:Float = 0, width:Float = 0, height:Float = 0) {
-	var gray:FlxRuntimeShader = new FlxRuntimeShader(Shaders.gray, null, 100);
         var button = new FlxButton(X, Y);
         if (width == 0) {
         	width = FlxG.width / 4;
@@ -90,7 +89,6 @@ class FlxNewHitbox extends FlxSpriteGroup
         }
         button.loadGraphic(createHintGraphic(Std.int(width), Std.int(height), color));
         button.scrollFactor.set();
-	button.shader = gray;
         button.alpha = 0;
         
         button.onDown.callback = button.onOver.callback = function()
