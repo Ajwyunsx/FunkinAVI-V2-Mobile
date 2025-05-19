@@ -586,6 +586,8 @@ class MainMenu extends MusicBeatState
 			#if android
 			if (_virtualpad.buttonD.justPressed)
 			{
+				GameData.episode1FPLock = 'unlocked'; 
+				GameData.birthdayLocky = 'beaten';
 				FlxG.sound.play(Paths.sound('cancelMenu'));
 				theBox.sendMessage('Freeplay is Unlocked!', 'The is Test :).');
 			}	
