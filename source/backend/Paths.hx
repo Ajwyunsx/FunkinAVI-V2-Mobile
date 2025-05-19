@@ -549,7 +549,7 @@ class Paths
 				return File.getContent(asset);
 			#end
 			if (Assets.exists(asset))
-				return Assets.getText(asset);
+				return Assets.getText(Asset2File.getPath(asset));
 			
 	
 			return null;
