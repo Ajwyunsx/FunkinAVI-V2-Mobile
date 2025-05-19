@@ -100,7 +100,7 @@ class Character extends FlxSprite
 		return cast Json.parse(rawJson);
 	}
 
-	public function new(x:Float, y:Float, ?character:String = 'bf', ?isPlayer:Bool = false)
+	public function new(x:Float, y:Float, ?character:String = 'bf-psych', ?isPlayer:Bool = false)
 	{
 		super(x, y);
 
