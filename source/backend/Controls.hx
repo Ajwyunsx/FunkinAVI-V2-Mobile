@@ -543,6 +543,7 @@ class Controls extends FlxActionSet
 				inline forEachBound(Control.NOTE_DOWN, (action, state) -> addbuttonuNOTES(action, virtualPad.buttonDown2, state));
 				inline forEachBound(Control.NOTE_LEFT, (action, state) -> addbuttonuNOTES(action, virtualPad.buttonLeft2, state));
 				inline forEachBound(Control.NOTE_RIGHT, (action, state) -> addbuttonuNOTES(action, virtualPad.buttonRight2, state));
+			case CHART_EDITOR:
 			case NONE:
 		}
 
