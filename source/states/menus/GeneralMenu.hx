@@ -189,6 +189,9 @@ class GeneralMenu extends MusicBeatState {
 
         super.create();
         updateSelection();
+	#if android
+	addVirtualPad(LEFT_RIGHT, A_B);
+	#end
         FlxG.mouse.load(Paths.image('UI/funkinAVI/mouses/Hand').bitmap);
     }
 
