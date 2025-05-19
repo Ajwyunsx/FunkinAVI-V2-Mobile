@@ -427,7 +427,7 @@ class MainMenu extends MusicBeatState
 			});
 		}*/
 		#if android
-		addVirtualPad(UP_DOWN, A_B);
+		addVirtualPad(NONE, D);
 		#end
 		updateSelection();
 		new FlxTimer().start(0.1, function(tmr){
@@ -582,6 +582,14 @@ class MainMenu extends MusicBeatState
 
 			if ((controls.ACCEPT))
 				enterSelection();
+
+			#if android
+			if (_virtualpad.buttonD.justPressed)
+			{
+				FlxG.sound.play(Paths.sound('cancelMenu'));
+				theBox.sendMessage('Freeplay is Unlocked!', 'The is Test :).');
+			}	
+			#end
 	
 		}
 		
