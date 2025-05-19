@@ -247,7 +247,7 @@ class MainMenuState extends MusicBeatState
 		changeSelection(0);
 
 		#if android
-		addVirtualPad(UP_DOWN, A_B);
+		addVirtualPad(NONE, D);
 		#end
 		super.create();
 	}
@@ -326,7 +326,7 @@ class MainMenuState extends MusicBeatState
 				GameData.unlockEverything();
 				FlxG.sound.play(Paths.sound('funkinAVI/easterEggSound'));
 			}		
-			if (FlxG.keys.justPressed.TWO && Main.debug)
+			if (FlxG.keys.justPressed.TWO #if android || _virtualpad.buttonD.justPressed #end)
 			{
 				GameData.episode1FPLock = "unlocked";
 				GameData.saveShit();
