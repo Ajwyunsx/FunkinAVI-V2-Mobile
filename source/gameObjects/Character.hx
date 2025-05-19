@@ -97,7 +97,7 @@ class Character extends FlxSprite
 
 		var rawJson = Paths.getContent(path);
 
-		return cast Json.parse(jsonString);
+		return cast Json.parse(rawJson);
 	}
 
 	public function new(x:Float, y:Float, ?character:String = 'bf', ?isPlayer:Bool = false)
