@@ -89,7 +89,9 @@ class AndroidControls extends FlxSpriteGroup {
 			case HITBOX:
 		    if(ClientPrefs.hitboxmode == 'New'){
 		    initControler(5);
-		    }else{
+		    }else if(ClientPrefs.hitboxmode == 'Classic'){
+		    initControler(4);
+		    }else if(ClientPrefs.hitboxmode == 'Gradient'){
 		    initControler(6);
 		    }
 			case KEYBOARD:// nothing
