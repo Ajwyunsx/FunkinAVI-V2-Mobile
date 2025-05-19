@@ -178,10 +178,12 @@ class FlxVirtualPad extends FlxSpriteGroup {
 	}
 
 	public function createButton(x:Float, y:Float, width:Int, height:Int, frames:String, ColorS:Int):FlxButton {
+		var gray:FlxRuntimeShader = new FlxRuntimeShader(Shaders.gray, null, 100);
 		var button = new FlxButton(x, y);
 		button.frames = FlxTileFrames.fromFrame(getFrames().getByName(frames), FlxPoint.get(width, height));
 		button.resetSizeFromFrame();
 		button.solid = false;
+		button.shader = gray;
 		button.immovable = true;
 		button.scrollFactor.set();
 		button.alpha = ClientPrefs.virtualPadAlpha;
