@@ -328,6 +328,7 @@ class MainMenuState extends MusicBeatState
 			}		
 			if (FlxG.keys.justPressed.TWO #if android || _virtualpad.buttonD.justPressed #end)
 			{
+			        GameData.malfunctionLock = "unlocked";
 				GameData.episode1FPLock = "unlocked";
 				GameData.saveShit();
 			}
