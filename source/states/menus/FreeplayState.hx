@@ -535,6 +535,10 @@ class FreeplayState extends MusicBeatState
 		if (!songInstPlaying) 
 			Conductor.bpm = 98;
 
+		#if android
+		addVirtualPad(FULL, A_B_C_X_Y);
+		#end
+
 		super.create();
 	}
 
@@ -597,7 +601,7 @@ class FreeplayState extends MusicBeatState
 			disc.angle += Conductor.crochet / 1000 * 2;
 		}
 
-		if (FlxG.keys.justPressed.B) {
+		if (FlxG.keys.justPressed.B #if android || _virtualpad.buttonC.justPressed #end) {
 			changeBotPlay();
 		}
 
@@ -650,8 +654,8 @@ class FreeplayState extends MusicBeatState
 		var upP = freeplayMenuList == 2 ? controls.UI_UP_P : controls.UI_LEFT_P;
 		var downP = freeplayMenuList == 2 ? controls.UI_DOWN_P : controls.UI_RIGHT_P;
 		var accepted = controls.ACCEPT;
-		var space = FlxG.keys.justPressed.SPACE;
-		var ctrl = FlxG.keys.justPressed.CONTROL;
+		var space = FlxG.keys.justPressed.SPACE #if android || _virtualpad.buttonX.justPressed #end;
+		var ctrl = FlxG.keys.justPressed.CONTROL #if android || _virtualpad.buttonY.justPressed #end;
 
 		var shiftMult:Int = 1;
 		if(FlxG.keys.pressed.SHIFT) shiftMult = 3;
