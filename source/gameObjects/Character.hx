@@ -112,6 +112,7 @@ class Character extends FlxSprite
 		curCharacter = character;
 		this.isPlayer = isPlayer;
 		antialiasing = ClientPrefs.globalAntialiasing;
+		var characterPath:String = 'characters/' + character + '.json';
 		var library:String = null;
 		switch (curCharacter)
 		{
@@ -121,7 +122,7 @@ class Character extends FlxSprite
 				#if MODS_ALLOWED
 				var path:String = Paths.modFolders(characterPath);
 				if (!FileSystem.exists(path)) {
-					path = SUtil.getPath() + Paths.getPreloadPath(characterPath);
+					path = android.backend.SUtil.getPath() + Paths.getPreloadPath(characterPath);
 				}
 
 				if (!FileSystem.exists(path))
