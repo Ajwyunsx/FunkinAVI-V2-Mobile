@@ -47,8 +47,8 @@ class FlxHitbox extends FlxSpriteGroup {
 	public function createhitbox(x:Float = 0, y:Float = 0, frames:String) {
 		var button = new FlxButton(x, y);
 		var graphic = FlxGraphic.fromFrame(getFrames().getByName(frames));
-		graphic.color = FlxColor.GRAY; // Make the button graphic gray
 		button.loadGraphic(graphic);
+		button.color = FlxColor.GRAY;
 		button.antialiasing = orgAntialiasing;
 		button.alpha = 0; // sorry but I can't hard lock the hitbox alpha
 		button.onDown.callback = function (){
