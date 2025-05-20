@@ -78,7 +78,7 @@ class AndroidControls extends FlxSpriteGroup {
 
 		mode = getModeFromNumber(config.getcontrolmode());
 
-		if (PlayState.curStage == "waltRoom" || PlayState.curStage == "apartment" && PlayState.curStage != ""){
+		if (PlayState.curStage == "waltRoom" || PlayState.curStage == "apartment"){
 		dodge = new FlxVirtualPad(NONE, D, 0.75, ClientPrefs.globalAntialiasing);					
 		add(dodge);
 		}
