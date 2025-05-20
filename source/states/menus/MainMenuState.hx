@@ -330,7 +330,9 @@ class MainMenuState extends MusicBeatState
 			{
 			        GameData.malfunctionLock = "unlocked";
 				GameData.episode1FPLock = "unlocked";
+			        GameData.canAddMalfunction = true;
 				GameData.saveShit();
+			        messenger.sendMessage('All!!!', 'is All Song Unlocked! :)');
 			}
 			if (controls.BACK)
 			{
