@@ -114,6 +114,10 @@ class CharacterMenu extends MusicBeatState
 
         name.y -= 10;
 
+	#if android
+	addVirtualPad(LEFT_RIGHT, B);
+	#end
+
         changeSelection();
     }
 
