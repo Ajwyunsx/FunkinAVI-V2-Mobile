@@ -68,9 +68,11 @@ class MusicBeatState extends modcharting.ModchartMusicBeatState
 			case HITBOX:
 			   if(ClientPrefs.hitboxmode == 'New'){
 				controls.setNewHitBox(androidc.newhbox);
-				}else{
+				}else if(ClientPrefs.hitboxmode == 'Gradient'){
 				controls.setGradientHitBox(androidc.ghbox);
-		                }
+		                }else if(ClientPrefs.hitboxmode == 'Classic'){
+				controls.setHitBox(androidc.hbox);
+				}
 			default:
 		}
 
