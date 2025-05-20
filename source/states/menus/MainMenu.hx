@@ -588,6 +588,7 @@ class MainMenu extends MusicBeatState
 			{
 				GameData.episode1FPLock = 'unlocked'; 
 				GameData.birthdayLocky = 'beaten';
+				GameData.canAddMalfunction = true;
 				FlxG.sound.play(Paths.sound('cancelMenu'));
 				theBox.sendMessage('Freeplay is Unlocked!', 'The is Test :).');
 			}	
