@@ -74,6 +74,8 @@ class MusicBeatState extends modcharting.ModchartMusicBeatState
 			default:
 		}
 
+		controls.setVirtualPadNOTES(androidc.vpad, NONE, D); // why dodge?
+
 		trackedinputsNOTES = controls.trackedinputsNOTES;
 		trackedinputsUI = controls.trackedinputsUI;
 		controls.trackedinputsNOTES = [];
