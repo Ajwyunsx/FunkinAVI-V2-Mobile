@@ -6674,7 +6674,7 @@ class PlayState extends MusicBeatState
 		{
 			if (!isAutoplay)
 			{
-				if (FlxG.keys.justPressed.SPACE #if android || androidc.dodge.buttonD.justPressed #end)
+				if (FlxG.keys.justPressed.SPACE #if android || androidc.dodge.buttonD.justPressed && androidc.dodge != null #end)
 				{
 					/*
 					* This set is for song-specific gimmicks
