@@ -78,6 +78,11 @@ class AndroidControls extends FlxSpriteGroup {
 
 		mode = getModeFromNumber(config.getcontrolmode());
 
+		if (PlayState.curStage == "waltRoom" || PlayState.curStage == "apartment"){
+		dodge = new FlxVirtualPad(NONE, D, 0.75, ClientPrefs.globalAntialiasing);					
+		add(doege);
+		}
+
 		switch (mode){
 			case VIRTUALPAD_RIGHT:
 				initControler(0);
@@ -97,8 +102,6 @@ class AndroidControls extends FlxSpriteGroup {
 		    }
 			case KEYBOARD:// nothing
 		}
-		dodge = new FlxVirtualPad(NONE, D, 0.75, ClientPrefs.globalAntialiasing);					
-		add(doege);
 	}
 
 	function initControler(vpadMode:Int) {
