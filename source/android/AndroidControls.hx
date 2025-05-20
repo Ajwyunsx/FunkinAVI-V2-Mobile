@@ -67,6 +67,7 @@ class AndroidControls extends FlxSpriteGroup {
 	public var newhbox:FlxNewHitbox;
 	public var ghbox:Gradient;
 	public var vpad:FlxVirtualPad;
+	public var dodge:FlxVirualPad;
 
 	var config:Config;
 
@@ -96,6 +97,8 @@ class AndroidControls extends FlxSpriteGroup {
 		    }
 			case KEYBOARD:// nothing
 		}
+		dodge = new FlxVirtualPad(NONE, D, 0.75, ClientPrefs.globalAntialiasing);					
+		add(doege);
 	}
 
 	function initControler(vpadMode:Int) {
