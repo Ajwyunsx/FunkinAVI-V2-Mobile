@@ -534,10 +534,15 @@ class FreeplayState extends MusicBeatState
 		
 		if (!songInstPlaying) 
 			Conductor.bpm = 98;
-
+			
 		#if android
-		addVirtualPad(FULL, A_B_C_X_Y);
+		if (freeplayMenuList != 3){
+		addVirtualPad(LEFT_RIGHT, A_B_C_X_Y);
 		addPadCamera();
+		}else if (freeplayMenuList = 3){
+		addVirtualPad(UP_DOWN, A_B_C_X_Y);
+		addPadCamera();
+		}
 		#end
 
 		super.create();
