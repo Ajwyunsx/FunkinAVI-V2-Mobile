@@ -18,15 +18,19 @@ class BotplayScreen extends MusicBeatState {
 		fog.velocity.set(-100, 0);
         fog.alpha = 0.45;
 		add(fog);
+
+	#if android
+	addVirtualPad(NONE, A_B);
+	#end
     }
     override function update(elapsed:Float) {
         super.update(elapsed);
 
-        if (FlxG.keys.justPressed.Y)
+        if (FlxG.keys.justPressed.Y #if android || _virtualpad.buttonA.justPressed #end)
         {
             GameData.overrideBotplay();
         }
-        if (FlxG.keys.justPressed.N)
+        if (FlxG.keys.justPressed.N #if android || _virtualpad.buttonB.justPressed #end)
         {
             MusicBeatState.switchState(new PlayState());
         }
